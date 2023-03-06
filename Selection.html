@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- head -->
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	
+	<!-- title -->
+	<title>Selection Sort</title>
+
+	<!-- linking selection.css -->
+	<link href="selection.css" rel="stylesheet" />
+</head>
+<!-- body -->
+<style>
+	nav {
+   background: #4682B4;
+   height: 70px;
+   widht: 100%;
+    }
+	</style>
+<body >
+<center>
+	<nav>
+	<table>
+		<tr>
+		
+		<td><b style="background-color: white;
+			color: black;
+			padding: 10px;
+			font-size: 16px;
+			width: : 200px;
+			height: : 100px;
+			border-radius: 5px;
+			font-size: 20px;">SIZE  
+		<select id="num">
+		<option value="">Select size</option>
+		
+		<option value="10">10</option>
+		<option value="20">20</option>
+		<option value="30">30</option>
+		<option value="40">40</option>
+		<option value="50">50</option>
+		<option value="60">60</option>
+		
+		
+		
+		</select>
+		
+		</b></td> 
+		
+		
+		<td><b style="background-color: white;
+			color: black;
+			padding: 10px;
+			font-size: 16px;
+			width: : 200px;
+			height: : 100px;
+			border-radius: 5px;
+			font-size: 20px;">SPEED<input type="range" min="1" max="1000"	 id="speed" value="200"></b></td>
+		
+		
+		<td><button  style="color: black;
+			border: 2px solid rgb(216, 2, 134);
+			border-radius: 0px;
+			padding: 18px 36px;
+			display: inline-block;
+			font-family: "Lucida Console", Monaco,     monospace;
+			font-size: 14px;
+			letter-spacing: 1px;
+			cursor: pointer;
+			box-shadow: inset 0 0 0 0 #4682B4;
+			-webkit-transition: ease-out 0.4s;
+			-moz-transition: ease-out 0.4s;
+			 transition: ease-out 0.4s;  
+			box-shadow: inset 0 100px 0 0 #4682B4;" type="submit" id="button1" style="width: 120%;">START</button></td>
+		
+<td></td>
+		
+		<td><button  style="color: black;
+			border: 2px solid rgb(218, 2, 134);
+			border-radius: 0px;
+			padding: 18px 36px;
+			display: inline-block;
+			font-family: "Lucida Console", Monaco,     monospace;
+			font-size: 14px;
+			letter-spacing: 1px;
+			cursor: pointer;
+			box-shadow: inset 0 0 0 0 #D80286;
+			-webkit-transition: ease-out 0.4s;
+			-moz-transition: ease-out 0.4s;
+			 transition: ease-out 0.4s;  
+			box-shadow: inset 0 100px 0 0 #D80286;" onclick="generate()" id="button2" style="width: 120%;">REGENERATE</button></td>
+		
+			<td>
+				<td>
+				<td>
+				<td>
+				<td>
+				<a class="back" href="Index.html"><b>HOME</b></a>
+				</td>
+				</td>
+				</td>
+				</td>
+				</td>
+				
+		</tr>
+		</table>
+	</nav>
+</center>
+<!--<section class="head">Selection Sort </section>-->
+<section class="data-container"></section>
+<!-- "Selection Sort" button --> 
+
+<!--<button class="btn2"
+		onclick="SelectionSort()" id="Button2" >
+	Start</button>
+	&nbsp;&nbsp;
+	<button class="btn1" onclick="stop()" id="Button1" >
+		Stop</button> 
+</body>
+-->
+<!-- linking selection.js -->
+<script src="selection.js"></script>
+</html>

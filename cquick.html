@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+#myCanvas{
+border: 1px solid white;
+background:#141414;
+padding: 40px;
+}
+</style>
+<script src='jquery/jquery.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.min.js"></script> 
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+  }
+
+  .canvas {
+    display: #FFFFFF;
+border: 1px solid red;
+background: #FFFFFF;
+padding:auto;
+margin:auto;
+  }
+  nav {
+   background: #000000;
+   height: 80px;
+   widht: 100%;
+    }
+</style>
+<script>
+var flag=0;
+let array =new Array();
+let w = 0;
+let c = [];
+let sp=0;
+let size=0;
+let starting=0;
+async function quickSort(arr, start, end) {
+  if (start >= end) {
+    return;
+  }
+  let index = await partition(arr, start, end);
+  c[index] = -1;
+  await Promise.all([
+    quickSort(arr, start, index - 1),
+    quickSort(arr, index + 1, end)
+  ]);
+}
+async function partition(arr, start, end) {
+  for (let i = start; i < end; i++) {
+    c[i] = 1;
+  }
+  let pivotValue = arr[end];
+  let pivotIndex = start;
+  c[pivotIndex] = 0;
+  for (let i = start; i < end; i++) {
+    if (arr[i] < pivotValue) {
+      await swap(arr, i, pivotIndex);
+      c[pivotIndex] = -1;
+      pivotIndex++;
+      c[pivotIndex] = 0;
+    }
+  }
+  await swap(arr, pivotIndex, end);
+  for (let i = start; i < end; i++) {
+    if (i != pivotIndex) {
+      c[i] = -1;
+    }
+  }
+ return pivotIndex;
+}
+function draw() 
+{
+if(flag==1)return;
+background(" #FFFFFF");
+var x=50;
+var gg=parseInt(w/2)+12;
+for (let i = 0; i < array.length; i++)
+{
+noStroke();
+if (c[i] == 0)
+{
+fill('#6b6b19'); 
+} else if (c[i] == 1)
+{
+fill('crimson');
+} else
+{
+ fill('black');
+}
+    rect(x, height - array[i], w, array[i]);
+fill('#000000');
+text(array[i],x,height - array[i]-10);
+    
+x+=w+10;
+  }
+}
+async function swap(arr, a, b) {
+  await sleep(sp);
+  let temp = arr[a];
+  arr[a] = arr[b];
+  arr[b] = temp;
+}
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+$(()=>{
+$('#speed').on("input", function() {
+ var gg= $('#speed').val();
+sp=(gg)*(-1);
+});
+
+
+$('#button2').on("click", function(){
+starting=0;
+var bt=$("#button1");
+if(bt.html()=="STOP")
+{
+flag=0;
+bt.html("START");
+}
+
+
+var n = $('#num').val();
+size=n;
+createCanvas(1300,530);
+if(array.length>0)array.length=0;
+var x;
+var max=450;
+var min=10;
+for(var i=0;i<n;i++)
+{
+x=Math.floor(Math.random()*(max-min+1)+min);
+array.push(x);
+c[i] = -1;
+}
+var ww=parseInt(n/10);
+w=0;
+if(n<50)
+{
+for(var i=5;i>=ww;i--)w+=10;
+}
+if(n==50)
+{
+w=15;
+}
+if(n==55)
+{
+w=12;
+}
+if(n==60)
+{
+w=10;
+}
+
+
+
+
+});
+
+
+$('#button1').on("click", function(){
+if(size==0)
+{
+alert("select size")
+return;
+}
+if(starting==0)
+{
+var cf=confirm("Are you sure??");
+if(cf==false)return;
+}
+
+
+var bt=$("#button1");
+if(bt.html()=="START")
+{
+flag=0;
+bt.html("STOP");
+}
+else
+{
+flag=1;
+bt.html("START");
+return;
+}
+
+if(starting==0)
+{
+quickSort(array, 0, array.length - 1);
+starting=1;
+}
+
+});
+
+
+$('#num').on('input',function(){
+
+var n = $('#num').val();
+size=n;
+createCanvas(1300,530);
+if(array.length>0)array.length=0;
+var x;
+var max=450;
+var min=10;
+for(var i=0;i<n;i++)
+{
+x=Math.floor(Math.random()*(max-min+1)+min);
+array.push(x);
+c[i] = -1;
+}
+var ww=parseInt(n/10);
+w=0;
+if(n<50)
+{
+for(var i=5;i>=ww;i--)w+=10;
+}
+if(n==50)
+{
+w=15;
+}
+if(n==55)
+{
+w=12;
+}
+if(n==60)
+{
+w=10;
+}
+});
+
+
+
+});
+
+</script>
+<body style="background-color:">
+<nav>
+<center>
+<table>
+<tr>
+<td><b style="color:white">SIZE  
+<select id="num">
+<option value="">Select size</option>
+<option value="25">25</option>
+<option value="30">30</option>
+<option value="40">40</option>
+<option value="50">50</option>
+<option va+lue="55">55</option>
+<option va+lue="60">60</option>
+</select>
+</b></td> 
+<td><b style="color:white">SPEED<input type="range" min="-1000" max="1"	 id="speed" value="-900"></b></td>
+<td><button  style="background: darkcyan;color:white;" type="submit" id="button1" style="width: 120%;">START</button></td>
+<td></td>
+<td></td>
+<td></td>
+<td><button  style="background: darkcyan;color:white;" type="submit" id="button2" style="width: 120%;">REGENERATE</button></td>
+</tr>
+</table>
+</center>
+</nav>
+</body>
+</html>

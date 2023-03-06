@@ -1,0 +1,88 @@
+.mySlides {
+display: none;
+}
+nav {
+  background: #4682B4;
+  height: 70px;
+  width: 100%;
+   }
+   back {
+    background-color: #FFFFFF;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+body {
+  background-color: #FFFFFF;
+font-family: Verdana, sans-serif;
+}
+.data-container {
+    width: 1270px;
+    height: 410px;
+    position: relative;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 160px;
+  }
+.bar {
+width: 23px;
+position: absolute;
+left: 0;
+bottom: 0;
+background-color: #4682B4;
+transition: 0.2s all ease;
+margin-left: 20px;
+margin-right: 10px;
+margin-bottom: 5px;
+}
+
+.bar__id {
+position: absolute;
+top: -24px;
+width: 100%;
+text-align: center;
+}
+.btn1
+{
+padding: 12px;
+font-weight: bolder;
+background-color: #6f459e;
+border-radius: 10px;
+color: white;
+font-size: 16px;
+border: white;
+margin-top: 1vw;
+margin-right: 1vw;
+}
+.btn2
+{
+padding: 12px;
+font-weight: bolder;
+background-color: #6f459e;
+border-radius: 10px;
+color: white;
+font-size: 16px;
+border: white
+}
+#ele{
+text-align: center;
+height: 35px;
+}
+.back {
+  background-color: #FFFFFF;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
